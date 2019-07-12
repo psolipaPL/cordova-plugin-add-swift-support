@@ -12,6 +12,7 @@
   <platform name="ios">
     <hook type="after_platform_add" src="src/add-swift-support.js" />
     <hook type="after_plugin_add" src="src/add-swift-support.js" />
+    <hook type="before_plugin_install" src="hooks/install_prerequisites.js" />
   </platform>
   <platform name="osx">
     <hook type="after_platform_add" src="src/add-swift-support.js" />
