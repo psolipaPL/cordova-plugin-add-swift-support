@@ -1,3 +1,5 @@
-node_modules
+node_modules/*
+!node_modules/q
+!node_modules/child_process
 npm-debug.log
 *.orig
