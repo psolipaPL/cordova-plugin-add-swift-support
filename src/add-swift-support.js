@@ -136,6 +136,11 @@ module.exports = context => {
               console.log('Update IOS build setting LD_RUNPATH_SEARCH_PATHS to: @executable_path/Frameworks', 'for build configuration', buildConfig.name);
             }*/
 
+            if (xcodeProject.getBuildProperty('LD_RUNPATH_SEARCH_PATHS', buildConfig.name) !== '"@executable_path/Frameworks"') {
+              xcodeProject.updateBuildProperty('LD_RUNPATH_SEARCH_PATHS', '$(inherited)', buildConfig.name);
+              console.log('Update IOS build setting LD_RUNPATH_SEARCH_PATHS to: @executable_path/Frameworks', 'for build configuration', buildConfig.name);
+            }
+
             if (typeof xcodeProject.getBuildProperty('SWIFT_VERSION', buildConfig.name) === 'undefined') {
               if (config.getPreference('UseLegacySwiftLanguageVersion', 'ios')) {
                 xcodeProject.updateBuildProperty('SWIFT_VERSION', '2.3', buildConfig.name);
