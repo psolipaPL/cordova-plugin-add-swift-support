@@ -93,6 +93,10 @@ module.exports = context => {
             xcodeProject.updateBuildProperty('SWIFT_OBJC_BRIDGING_HEADER', bridgingHeaderProperty, buildConfig.name);
             console.log('Update IOS build setting SWIFT_OBJC_BRIDGING_HEADER to:', bridgingHeaderProperty, 'for build configuration', buildConfig.name);
           }
+          if (xcodeProject.getBuildProperty('SWIFT_OBJC_INTERFACE_HEADER_NAME', buildConfig.name) !== '"OutSystems-Swift.h"') {
+            xcodeProject.updateBuildProperty('SWIFT_OBJC_INTERFACE_HEADER_NAME', '"OutSystems-Swift.h"', buildConfig.name);
+            console.log('Update IOS build setting SWIFT_OBJC_INTERFACE_HEADER_NAME to:', '"OutSystems-Swift.h"', 'for build configuration', buildConfig.name);
+          }
         }
       }
 
