@@ -31,7 +31,7 @@ module.exports = context => {
     (context.hook === 'after_prepare' && context.cmdLine.includes('prepare')) ||
     (context.hook === 'after_plugin_add' && context.cmdLine.includes('plugin add'))) {
     getPlatformVersionsFromFileSystem(context, projectRoot).then(platformVersions => {
-      const IOS_MIN_DEPLOYMENT_TARGET = '7.0';
+      const IOS_MIN_DEPLOYMENT_TARGET = '12.0';
       const platformPath = path.join(projectRoot, 'platforms', 'ios');
       const config = getConfigParser(context, path.join(projectRoot, 'config.xml'));
 
